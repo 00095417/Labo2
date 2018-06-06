@@ -5,6 +5,8 @@
  */
 package labo2;
 
+import com.guardado.gui.Gui;
+
 /**
  *
  * @author LN710Q
@@ -15,7 +17,6 @@ public class Labo2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-    }
-    
+        new Gui().setVisible(true);
+    } 
 }
