@@ -33,7 +33,17 @@ public class AnimalThread extends Thread{
     
     public void run(){
         
-        for (int i = x; i <= this.limite; i +=10){
+        int step = 0;
+        if (this.nombre=="tortuga"){
+            step = 10;
+        }
+        if (this.nombre=="canguro"){
+            step = 50;
+        }
+        if (this.nombre=="dragon"){
+            step = 100;
+        }
+        for (int i = x; i <= this.limite; i +=step){
             System.out.println(this.nombre + " avanza");
             this.animal.setLocation(i,y);
             try {
@@ -42,7 +52,18 @@ public class AnimalThread extends Thread{
                 e.printStackTrace();
             }
         }
+        
         System.out.println(this.animal + " a llegadrdo a la meta");
+        
+        for (int i = this.limite; i > 0; i -=step){
+            System.out.println(this.nombre + " avanza");
+            this.animal.setLocation(i,y);
+            try {
+                sleep(100);
+            }catch (InterruptedException e){
+                e.printStackTrace();
+            }
+        }
         
         yield();    
     }
